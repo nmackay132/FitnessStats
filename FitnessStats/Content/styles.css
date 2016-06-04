@@ -1,0 +1,12 @@
+#RunkeeperStats h2 {
+  font-family: Roboto, Helvetica, sans-serif;
+}
+#RunkeeperStats table {
+  position: absolute;
+  left: 50px;
+}
+#RunkeeperStats table,
+#RunkeeperStats th,
+#RunkeeperStats td {
+  border: 1px solid black;
+}

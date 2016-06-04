@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Stats</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <h1>Fitness Stats</h1>
+    <div id="RunkeeperStats">
+        <h2>Runs</h2>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Distance (km)</th>
+                <th scope="col">Calories</th>
+            </tr>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>January 6, 2016</td>
+                <td>45:03</td>
+                <td>4.76</td>
+                <td>356</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>February 12, 2016</td>
+                <td>48:46</td>
+                <td>5.26</td>
+                <td>470</td>
+            </tr>
+            </tbody>
+            </thead>
+        </table>
+        @*<hr />*@
+        @*<footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>*@
+    </div>
+    @*<div class="container body-content">
+        @RenderBody()
+    </div>*@
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
