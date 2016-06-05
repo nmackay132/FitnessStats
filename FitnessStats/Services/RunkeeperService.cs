@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using MyWebApplication.Models;
+using FitnessStats.Models;
 
-namespace MyWebApplication.Services
+namespace FitnessStats.Services
 {
     public class RunkeeperService
     {

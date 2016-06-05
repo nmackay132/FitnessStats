@@ -7,8 +7,9 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <h1>Fitness Stats</h1>
-    <div id="RunkeeperStats">
+<h1>Fitness Stats</h1>
+    @Html.Partial("~/Views/Components/Runkeeper.cshtml")
+    @*<div id="RunkeeperStats">
         <h2>Runs</h2>
         <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
             <thead>
@@ -37,11 +38,11 @@
             </tbody>
             </thead>
         </table>
-        @*<hr />*@
-        @*<footer>
+    </div>*@
+    @*<hr />*@
+    @*<footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>*@
-    </div>
     @*<div class="container body-content">
         @RenderBody()
     </div>*@

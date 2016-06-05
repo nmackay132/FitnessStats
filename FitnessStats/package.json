@@ -1,0 +1,18 @@
+{
+  "name": "FitnessStats",
+  "version": "1.0.0",
+  "description": "My fitness stats from multiple apps and websites.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/nmackay132/FitnessStats.git"
+  },
+  "keywords": [],
+  "author": "Nathan Mackay <mackaynathan@gmail.com>",
+  "license": "ISC"
+}

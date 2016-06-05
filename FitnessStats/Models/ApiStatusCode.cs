@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace MyWebApplication.Models
+namespace FitnessStats.Models
 {
     public enum ApiStatusCode
     {
