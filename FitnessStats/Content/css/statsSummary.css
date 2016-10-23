@@ -1,0 +1,23 @@
+#StatsSummary {
+  min-height: 120px;
+  margin: auto;
+  width: 50%;
+  margin-bottom: 20px;
+  clear: left;
+}
+#StatsSummary .cushion {
+  margin: auto;
+  width: 90%;
+}
+#StatsSummary .statBlock {
+  display: inline-block;
+  width: 30%;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+#StatsSummary .statBlock .statBlock-stat {
+  padding-bottom: 30px;
+  padding-top: 35px;
+  font-size: xx-large;
+  font-weight: 400;
+}

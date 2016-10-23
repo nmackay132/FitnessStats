@@ -1,0 +1,72 @@
+#RunkeeperStats {
+  width: 40%;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+#RunkeeperStats .dataTables_wrapper {
+  margin: auto;
+  width: 97%;
+}
+#RunkeeperStats .dataTables_wrapper .dataTables_length {
+  float: left;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+#RunkeeperStats .dataTables_wrapper .dataTables_filter {
+  float: right;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+#RunkeeperStats .dataTables_wrapper table {
+  width: 100%;
+}
+#StatsSummary {
+  min-height: 120px;
+  margin: auto;
+  width: 50%;
+  margin-bottom: 20px;
+  clear: left;
+}
+#StatsSummary .cushion {
+  margin: auto;
+  width: 90%;
+}
+#StatsSummary .statBlock {
+  display: inline-block;
+  width: 30%;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+#StatsSummary .statBlock .statBlock-stat {
+  padding-bottom: 30px;
+  padding-top: 35px;
+  font-size: xx-large;
+  font-weight: 400;
+}
+body {
+  margin-top: -25px;
+  position: relative;
+}
+body #content {
+  margin: auto;
+  width: 90%;
+}
+body #content h1 {
+  float: left;
+}
+body #content h2 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  color: #F05A26;
+}
+body #content .profile {
+  width: 140px;
+  min-height: 180px;
+  float: right;
+  margin-top: 50px;
+  margin-right: 20px;
+}
+body #content .logo {
+  float: left;
+  margin-top: 50px;
+  width: 220px;
+}

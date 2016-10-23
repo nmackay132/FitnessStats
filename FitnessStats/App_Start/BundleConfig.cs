@@ -4,28 +4,20 @@ namespace FitnessStats
 {
     public class BundleConfig
     {
-        // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
-
-            //// Use the development version of Modernizr to develop with and learn from. Then, when you're
-            //// ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-            //            "~/Scripts/modernizr-*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/dependencies").Include(
+                "~/node_modules/jquery/dist/jquery.min.js",
+                "~/node_modules/datatables.net/js/jquery.dataTables.js",
+                "~/node_modules/material-design-lite/material.min.js",
+                "~/node_modules/knockout/build/output/knockout-latest.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/node_modules/material-design-lite/material.css",
-                      "~/Content/bootstrap.css",
-                      "~/Content/styles.css"));
+                      "~/node_modules/material-design-lite/material.min.css",
+                      "~/node_modules/css/jquery.dataTables.css",
+                      "~/Content/css/styles.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/require").Include("~/node_modules/requirejs/require.js"));
         }
     }
 }

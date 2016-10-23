@@ -1,0 +1,1 @@
+﻿//ko.components.register()
