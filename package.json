@@ -1,0 +1,28 @@
+{
+  "name": "fitnessstats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "datatables.net-dt": "^1.10.12",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmackay132/FitnessStats.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmackay132/FitnessStats/issues"
+  },
+  "homepage": "https://github.com/nmackay132/FitnessStats#readme"
+}

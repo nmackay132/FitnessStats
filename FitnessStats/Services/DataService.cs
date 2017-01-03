@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using FitnessStats.Integration;
 using FitnessStats.Models;
-using MongoDB.Bson;
+using FitnessStats.Repositories;
 using MongoDB.Driver;
 
 namespace FitnessStats.Services
@@ -11,26 +10,28 @@ namespace FitnessStats.Services
     {
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
+        private RunkeeperService runkeeperService;
+        private RunRepository runRepository;
+        private RunkeeperIntegration runkeeperIntegration;
 
         public DataService()
         {
             _client = new MongoClient();
-            _database = _client.GetDatabase("FitnessStats");
+            runkeeperService = new RunkeeperService();
+            runRepository = new RunRepository();
+            runkeeperIntegration = new RunkeeperIntegration(runRepository, runkeeperService);
         }
 
         public List<Run> GetRuns()
         {
-            var collection = _database.GetCollection<Run>("RunLog");
-            //var filter = new BsonDocument();
-            //var sort = Builders<Run>.Sort.Descending("start_time");
-            List<Run> runs = collection.AsQueryable().Select(run => run).ToList();
-            //var result = await collection.Find(filter).Sort(sort).ToListAsync();
-            return runs;
+            //runkeeperIntegration.UpdateRuns();
+            //GetAllRunsIfChanges();
+            return runRepository.GetRuns();
         }
 
-        public void UpdateRuns()
+        public void GetAllRunsIfChanges()
         {
-            
+            var runs = runkeeperService.GetAllRunsIfChanges();
         }
     }
 }

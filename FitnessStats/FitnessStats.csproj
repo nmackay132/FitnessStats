@@ -162,11 +162,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Integration\RunkeeperIntegration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\ApiStatusCode.cs" />
     <Compile Include="Models\Run.cs" />
     <Compile Include="Models\RunsObject.cs" />
+    <Compile Include="Models\SyncSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MongoRepository.cs" />
+    <Compile Include="Repositories\RunRepository.cs" />
+    <Compile Include="Repositories\SyncSettingsRepository.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\RunkeeperService.cs" />
     <Compile Include="Tests\RunkeeperTests.cs" />
@@ -183,7 +188,7 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\Models\Run.js" />
     <Content Include="Scripts\ViewModels\Runkeeper.js" />
-    <Content Include="Scripts\ultils\ajax-utils.js" />
+    <Content Include="Scripts\utils\ajax-utils.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

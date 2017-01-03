@@ -1,23 +1,6 @@
 #RunkeeperStats {
-  width: 40%;
+  width: 600px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-}
-#RunkeeperStats .dataTables_wrapper {
-  margin: auto;
-  width: 97%;
-}
-#RunkeeperStats .dataTables_wrapper .dataTables_length {
-  float: left;
-  margin-top: 8px;
-  margin-bottom: 5px;
-}
-#RunkeeperStats .dataTables_wrapper .dataTables_filter {
-  float: right;
-  margin-top: 8px;
-  margin-bottom: 5px;
-}
-#RunkeeperStats .dataTables_wrapper table {
-  width: 100%;
 }
 #StatsSummary {
   min-height: 120px;

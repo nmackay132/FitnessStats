@@ -14,7 +14,7 @@ namespace FitnessStats
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/node_modules/material-design-lite/material.min.css",
-                      "~/node_modules/css/jquery.dataTables.css",
+                      "~/node_modules/datatables.net-dt/css/jquery.dataTables.css",
                       "~/Content/css/styles.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/require").Include("~/node_modules/requirejs/require.js"));

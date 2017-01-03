@@ -1,21 +1,20 @@
-﻿define(["Models/Run"], function (Run) {
+﻿define(["Models/Run", "utils/ajax-utils"], function (Run, ajax) {
     var ViewModel = function() {
         var self = this;
-
         self.runsList = [];
 
-        $.ajax({
-            type: 'GET',
-            url: 'api/Runkeeper/GetRuns',
-            data: {
-                format: 'json'
-            },
-            success: function (response) {
-                displayRuns(response.Data);
-            }
-        });
+        self.initialize = function(options) {
+            getRunsData(options.getRunsUrl);
+        }
 
-        var displayRuns = function (rawRuns) {
+        function getRunsData(url) {
+            ajax.getJSON(url)
+                .done(function(response) {
+                    displayRuns(response.Data);
+                });
+        }
+
+        function displayRuns(rawRuns) {
             convertToRuns(rawRuns);
 
             $('#RunkeeperStats table').DataTable({
@@ -32,12 +31,12 @@
             );
         }
 
-        var convertToRuns = function (rawRuns) {
+        function convertToRuns(rawRuns) {
             var runCount = rawRuns.length;
 
             for (var i = 0; i < runCount; i++) {
                 var run = rawRuns[i];
-                self.runsList.push(new Run(runCount - i, run.Duration, run.StartTime, run.TotalCalories, run.TotalDistance).toStringArray());
+                self.runsList.push(new Run(runCount - i, run.duration, run.start_time, run.total_calories, run.total_distance).toStringArray());
             }
         }
     }

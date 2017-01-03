@@ -4,6 +4,12 @@
 
 <script>
     requirejs(["ViewModels/Runkeeper"], function (Runkeeper) {
-        ko.applyBindings(Runkeeper, $("#RunkeeperStats")[0]);
+        var vm = new Runkeeper();
+
+        vm.initialize({
+            getRunsUrl : '@Url.Action("GetRuns", "Runkeeper", new { httproute = "" })'
+        });
+
+        ko.applyBindings(vm, $("#RunkeeperStats")[0]);
     });
 </script>
