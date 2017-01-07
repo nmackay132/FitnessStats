@@ -3,7 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
-namespace WebUI.Models
+namespace FitnessStats.Models
 {
     [BsonIgnoreExtraElements]
     public class Run

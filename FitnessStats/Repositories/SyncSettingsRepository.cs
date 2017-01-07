@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
+using FitnessStats.Models;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
-using WebUI.Models;
 
-namespace WebUI.Repositories
+namespace FitnessStats.Repositories
 {
     public class SyncSettingsRepository : MongoRepository
     {

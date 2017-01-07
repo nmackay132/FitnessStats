@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace WebUI.Repositories
+namespace FitnessStats.Repositories
 {
     public class MongoRepository
     {

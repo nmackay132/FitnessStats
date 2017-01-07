@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using WebUI.Models;
-using WebUI.Services;
+using FitnessStats.Models;
+using FitnessStats.Services;
 
 namespace WebUI.Controllers
 {

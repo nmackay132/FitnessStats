@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using FitnessStats.Integration;
+using FitnessStats.Models;
+using FitnessStats.Repositories;
 using MongoDB.Driver;
-using WebUI.Integration;
-using WebUI.Models;
-using WebUI.Repositories;
 
-namespace WebUI.Services
+namespace FitnessStats.Services
 {
     public class DataService
     {
