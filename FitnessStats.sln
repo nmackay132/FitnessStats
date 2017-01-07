@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessStats", "FitnessStats\FitnessStats.csproj", "{06E1826B-18F7-4DC1-85BA-619EAB961368}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{06E1826B-18F7-4DC1-85BA-619EAB961368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessStats", "FitnessStats\FitnessStats.csproj", "{ECEFCD3F-8497-4537-8CDE-DC72551C30D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{06E1826B-18F7-4DC1-85BA-619EAB961368}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06E1826B-18F7-4DC1-85BA-619EAB961368}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06E1826B-18F7-4DC1-85BA-619EAB961368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECEFCD3F-8497-4537-8CDE-DC72551C30D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECEFCD3F-8497-4537-8CDE-DC72551C30D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECEFCD3F-8497-4537-8CDE-DC72551C30D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECEFCD3F-8497-4537-8CDE-DC72551C30D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

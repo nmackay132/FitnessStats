@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using FitnessStats.Models;
-using FitnessStats.Repositories;
 using Newtonsoft.Json;
+using WebUI.Models;
+using WebUI.Repositories;
 
-namespace FitnessStats.Services
+namespace WebUI.Services
 {
     public class RunkeeperService
     {

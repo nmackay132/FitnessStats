@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace FitnessStats.Controllers
+namespace WebUI.Controllers
 {
     public class HomeController : Controller
     {

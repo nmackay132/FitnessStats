@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using FitnessStats.Models;
 using MongoDB.Driver;
+using WebUI.Models;
 
-namespace FitnessStats.Repositories
+namespace WebUI.Repositories
 {
     public class RunRepository : MongoRepository
     {

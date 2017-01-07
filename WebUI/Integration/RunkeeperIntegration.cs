@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using FitnessStats.Repositories;
-using FitnessStats.Services;
+using WebUI.Repositories;
+using WebUI.Services;
 
-namespace FitnessStats.Integration
+namespace WebUI.Integration
 {
     public class RunkeeperIntegration
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace FitnessStats
+namespace WebUI
 {
     public static class WebApiConfig
     {

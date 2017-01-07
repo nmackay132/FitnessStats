@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using FitnessStats.Models;
-using FitnessStats.Services;
+using WebUI.Models;
+using WebUI.Services;
 
-namespace FitnessStats.Controllers
+namespace WebUI.Controllers
 {
     public class RunkeeperController : ApiController
     {

@@ -1,9 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Http;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Http;
 
-namespace FitnessStats
+namespace WebUI
 {
     public class MvcApplication : System.Web.HttpApplication
     {

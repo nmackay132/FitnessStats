@@ -1,4 +1,4 @@
-﻿namespace FitnessStats.Models
+﻿namespace WebUI.Models
 {
     public class ApiResponse<T>
     {

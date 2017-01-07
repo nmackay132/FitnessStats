@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using FitnessStats.Services;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using WebUI.Services;
 
-namespace FitnessStats.Tests
+namespace WebUI.Tests
 {
     [TestFixture]
     public class RunkeeperTests

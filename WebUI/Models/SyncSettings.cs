@@ -1,9 +1,8 @@
 ﻿using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using Newtonsoft.Json;
 
-namespace FitnessStats.Models
+namespace WebUI.Models
 {
     [BsonIgnoreExtraElements]
     public class SyncSettings

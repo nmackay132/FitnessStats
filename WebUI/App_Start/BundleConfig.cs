@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace FitnessStats
+namespace WebUI
 {
     public class BundleConfig
     {

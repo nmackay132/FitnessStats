@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace FitnessStats
+namespace WebUI
 {
     public class FilterConfig
     {

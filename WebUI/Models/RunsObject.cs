@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace FitnessStats.Models
+namespace WebUI.Models
 {
     public class RunsObject
     {
