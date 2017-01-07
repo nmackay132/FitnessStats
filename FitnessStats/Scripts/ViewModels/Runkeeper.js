@@ -19,16 +19,15 @@
 
             $('#RunkeeperStats table').DataTable({
                 data: self.runsList,
+                order: [[ 0, "desc" ]],
                 columns: [
-                    { title: "#" },
                     { title: "Start Time" },
                     { title: "Duration" },
                     { title: "Distance (miles)" },
                     { title: "Pace" },
                     { title: "Calories" }
                 ]
-            }
-            );
+            });
         }
 
         function convertToRuns(rawRuns) {
@@ -36,7 +35,7 @@
 
             for (var i = 0; i < runCount; i++) {
                 var run = rawRuns[i];
-                self.runsList.push(new Run(runCount - i, run.duration, run.start_time, run.total_calories, run.total_distance).toStringArray());
+                self.runsList.push(new Run(run.duration, run.start_time, run.total_calories, run.total_distance).toStringArray());
             }
         }
     }

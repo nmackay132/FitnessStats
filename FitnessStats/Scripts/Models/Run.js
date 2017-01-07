@@ -1,5 +1,5 @@
 ﻿define([], function () {
-    var Run = function(runNum, duration, startTime, totalCalories, totalDistance) {
+    var Run = function(duration, startTime, totalCalories, totalDistance) {
         var self = this;
         var KM_TO_MILES = 0.621371;
         var MILES_TO_KM = 1.60934;
@@ -10,7 +10,6 @@
         var durationFormatted = formatDuration(duration);
         var paceFormatted = formatPace(duration, miles);
 
-        self.runNo = ko.observable(runNum);
         self.duration = ko.observable(durationFormatted);
         self.kilometers = ko.observable(parseFloat(kms).toFixed(2));
         self.miles = ko.observable(parseFloat(miles).toFixed(2));
@@ -29,13 +28,13 @@
             var hours = Math.floor(duration / (60 * 60));
             var minutes = Math.floor((duration - (60 * 60 * hours)) / 60);
             var seconds = Math.round((duration - (60 * 60 * hours + 60 * minutes)));
-            var hStr = "", mStr = "";
+            var hStr = "";
             if (hours > 0) hStr = hours + "h:";
             return hStr + minutes + "m:" + seconds + "s";
         }
 
         self.toStringArray = function () {
-            return [self.runNo, self.startTime, self.duration, self.miles, self.pace, self.calories];
+            return [self.startTime, self.duration, self.miles, self.pace, self.calories];
         }
     }
 
