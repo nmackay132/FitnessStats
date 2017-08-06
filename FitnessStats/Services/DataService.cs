@@ -24,7 +24,7 @@ namespace FitnessStats.Services
 
         public List<Run> GetRuns()
         {
-            //runkeeperIntegration.UpdateRuns();
+            runkeeperIntegration.UpdateRuns();
             //GetAllRunsIfChanges();
             return runRepository.GetRuns();
         }
