@@ -9,6 +9,7 @@ namespace WebUI
     {
         protected void Application_Start()
         {
+            new ApplicationBoostrapper();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

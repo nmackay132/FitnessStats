@@ -5,7 +5,7 @@ using MongoDB.Driver;
 
 namespace FitnessStats.Repositories
 {
-    public class RunRepository : MongoRepository
+    public class RunRepository : MongoRepository, IRunRepository
     {
         private IMongoCollection<Run> runCollection;
          

@@ -6,10 +6,10 @@ namespace FitnessStats.Integration
 {
     public class RunkeeperIntegration
     {
-        private readonly RunRepository _runRepository;
-        private readonly RunkeeperService _runkeeperService;
+        private readonly IRunRepository _runRepository;
+        private readonly IRunkeeperService _runkeeperService;
 
-        public RunkeeperIntegration(RunRepository runRepository, RunkeeperService runkeeperService)
+        public RunkeeperIntegration(IRunRepository runRepository, IRunkeeperService runkeeperService)
         {
             _runRepository = runRepository;
             _runkeeperService = runkeeperService;

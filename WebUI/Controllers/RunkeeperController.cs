@@ -7,8 +7,14 @@ namespace WebUI.Controllers
 {
     public class RunkeeperController : ApiController
     {
-        private RunkeeperService _runkeeperService = new RunkeeperService();
-        private DataService _dataService = new DataService();
+        //private RunkeeperService _runkeeperService = new RunkeeperService();
+        //private IDataService _dataService = new DataService();
+        private IDataService _dataService;
+
+        public RunkeeperController(IDataService dataService)
+        {
+            _dataService = dataService;
+        }
 
         [HttpGet]
         public ApiResponse<List<Run>> GetRuns()

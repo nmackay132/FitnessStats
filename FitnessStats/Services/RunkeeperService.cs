@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace FitnessStats.Services
 {
-    public class RunkeeperService
+    public class RunkeeperService : IRunkeeperService
     {
         private HttpClient client;
         private const string RunkeeperToken = "1c349751b3de41d1ada3efc27becff7d";

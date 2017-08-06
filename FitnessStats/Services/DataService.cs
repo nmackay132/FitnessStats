@@ -6,19 +6,21 @@ using MongoDB.Driver;
 
 namespace FitnessStats.Services
 {
-    public class DataService
+    public class DataService : IDataService
     {
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
-        private RunkeeperService runkeeperService;
-        private RunRepository runRepository;
+        private IRunkeeperService _runkeeperService;
+        private IRunRepository _runRepository;
         private RunkeeperIntegration runkeeperIntegration;
 
-        public DataService()
+        public DataService(IRunkeeperService runkeeperService, IRunRepository runRepository)
         {
             _client = new MongoClient();
-            runkeeperService = new RunkeeperService();
-            runRepository = new RunRepository();
+            _runkeeperService = runkeeperService;
+            //runRepository = new RunRepository();
+            _runRepository = runRepository;
+            //runRepository = new RunRepository();
             runkeeperIntegration = new RunkeeperIntegration(runRepository, runkeeperService);
         }
 
@@ -26,12 +28,12 @@ namespace FitnessStats.Services
         {
             //runkeeperIntegration.UpdateRuns();
             //GetAllRunsIfChanges();
-            return runRepository.GetRuns();
+            return _runRepository.GetRuns();
         }
 
         public void GetAllRunsIfChanges()
         {
-            var runs = runkeeperService.GetAllRunsIfChanges();
+            var runs = _runkeeperService.GetAllRunsIfChanges();
         }
     }
 }

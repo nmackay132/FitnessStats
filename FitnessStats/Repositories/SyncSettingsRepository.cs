@@ -6,7 +6,7 @@ using MongoDB.Driver.Linq;
 
 namespace FitnessStats.Repositories
 {
-    public class SyncSettingsRepository : MongoRepository
+    public class SyncSettingsRepository : MongoRepository, ISyncSettingsRepository
     {
         private readonly IMongoQueryable<SyncSettings> collection;
         public SyncSettingsRepository()
