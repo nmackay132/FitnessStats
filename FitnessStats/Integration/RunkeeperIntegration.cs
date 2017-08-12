@@ -1,10 +1,13 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using FitnessStats.Models;
 using FitnessStats.Repositories;
 using FitnessStats.Services;
 
 namespace FitnessStats.Integration
 {
-    public class RunkeeperIntegration
+    public class RunkeeperIntegration : IRunkeeperIntegration
     {
         private readonly IRunRepository _runRepository;
         private readonly IRunkeeperService _runkeeperService;
@@ -18,9 +21,14 @@ namespace FitnessStats.Integration
         public void UpdateRuns()
         {
             var runs = _runkeeperService.GetAllRunsIfChanges();
-            if (runs != null && !runs.Any()) return;
+            if (!HasNewRuns(runs)) return;
 
             _runRepository.UpdateManyRuns(runs);
+        }
+
+        private static bool HasNewRuns(IList<Run> runs)
+        {
+            return runs != null && runs.Any();
         }
     }
 }

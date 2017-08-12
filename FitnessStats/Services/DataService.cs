@@ -2,38 +2,24 @@
 using FitnessStats.Integration;
 using FitnessStats.Models;
 using FitnessStats.Repositories;
-using MongoDB.Driver;
 
 namespace FitnessStats.Services
 {
     public class DataService : IDataService
     {
-        protected static IMongoClient _client;
-        protected static IMongoDatabase _database;
-        private IRunkeeperService _runkeeperService;
-        private IRunRepository _runRepository;
-        private RunkeeperIntegration runkeeperIntegration;
+        private readonly IRunRepository _runRepository;
+        private readonly IRunkeeperIntegration _runkeeperIntegration;
 
-        public DataService(IRunkeeperService runkeeperService, IRunRepository runRepository)
+        public DataService(IRunRepository runRepository, IRunkeeperIntegration runkeeperIntegration)
         {
-            _client = new MongoClient();
-            _runkeeperService = runkeeperService;
-            //runRepository = new RunRepository();
             _runRepository = runRepository;
-            //runRepository = new RunRepository();
-            runkeeperIntegration = new RunkeeperIntegration(runRepository, runkeeperService);
+            _runkeeperIntegration = runkeeperIntegration;
         }
 
         public List<Run> GetRuns()
         {
-            //runkeeperIntegration.UpdateRuns();
-            //GetAllRunsIfChanges();
+            _runkeeperIntegration.UpdateRuns();
             return _runRepository.GetRuns();
-        }
-
-        public void GetAllRunsIfChanges()
-        {
-            var runs = _runkeeperService.GetAllRunsIfChanges();
         }
     }
 }

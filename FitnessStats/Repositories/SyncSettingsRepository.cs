@@ -6,17 +6,17 @@ using MongoDB.Driver.Linq;
 
 namespace FitnessStats.Repositories
 {
-    public class SyncSettingsRepository : MongoRepository, ISyncSettingsRepository
+    public class SyncSettingsRepository : Repository, ISyncSettingsRepository
     {
-        private readonly IMongoQueryable<SyncSettings> collection;
+        private readonly IMongoQueryable<SyncSettings> _collection;
         public SyncSettingsRepository()
         {
-            collection = _database.GetCollection<SyncSettings>("SyncSettings").AsQueryable();
+            _collection = Database.GetCollection<SyncSettings>("SyncSettings").AsQueryable();
         }
 
         public DateTime GetLastUpdatedTime()
         {
-            return collection.Single().LastUpdated;
+            return _collection.Single().LastUpdated;
         }
     }
 }

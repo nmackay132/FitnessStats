@@ -5,18 +5,18 @@ using MongoDB.Driver;
 
 namespace FitnessStats.Repositories
 {
-    public class RunRepository : MongoRepository, IRunRepository
+    public class RunRepository : Repository, IRunRepository
     {
-        private IMongoCollection<Run> runCollection;
+        private readonly IMongoCollection<Run> _runCollection;
          
         public RunRepository()
         {
-            runCollection = _database.GetCollection<Run>("RunLog");
+            _runCollection = Database.GetCollection<Run>("RunLog");
         }
 
         public List<Run> GetRuns()
         {
-            return runCollection.AsQueryable().ToList();
+            return _runCollection.AsQueryable().ToList();
         }
 
         public void UpdateManyRuns(IEnumerable<Run> runs)
@@ -28,9 +28,10 @@ namespace FitnessStats.Repositories
                 var model = new ReplaceOneModel<Run>(filter, run) { IsUpsert = true };
                 models.Add(model);
             }
+
             if (models.Any())
             {
-                runCollection.BulkWrite(models);
+                _runCollection.BulkWrite(models);
             }
         }
     }

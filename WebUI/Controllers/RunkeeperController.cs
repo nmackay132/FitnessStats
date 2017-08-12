@@ -7,9 +7,7 @@ namespace WebUI.Controllers
 {
     public class RunkeeperController : ApiController
     {
-        //private RunkeeperService _runkeeperService = new RunkeeperService();
-        //private IDataService _dataService = new DataService();
-        private IDataService _dataService;
+        private readonly IDataService _dataService;
 
         public RunkeeperController(IDataService dataService)
         {
