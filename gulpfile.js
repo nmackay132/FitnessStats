@@ -9,8 +9,8 @@ gulp.task('default', function() {
 
 // compile less into css
 gulp.task('build-less', function() {
-	return gulp.src('FitnessStats/Content/less/**/*.less')
+	return gulp.src('WebUI/Content/less/**/*.less')
 	.pipe(less())
-	.pipe(gulp.dest('FitnessStats/Content/css'));
+	.pipe(gulp.dest('WebUI/Content/css'));
 });
 

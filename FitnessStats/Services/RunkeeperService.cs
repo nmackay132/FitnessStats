@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using FitnessStats.Models;
@@ -10,19 +11,18 @@ namespace FitnessStats.Services
 {
     public class RunkeeperService : IRunkeeperService
     {
-        private HttpClient client;
-        private const string RunkeeperToken = "1c349751b3de41d1ada3efc27becff7d";
-        private SyncSettingsRepository syncSettingsRepository;
+        private HttpClient _client;
+        private readonly ISyncSettingsRepository _syncSettingsRepository;
 
-        public RunkeeperService()
+        public RunkeeperService(ISyncSettingsRepository syncSettingsRepository)
         {
-            syncSettingsRepository = new SyncSettingsRepository();
+            _syncSettingsRepository = syncSettingsRepository;
             SetUpHttpClient();
         }
 
         public List<Run> GetAllRunsIfChanges()
         {
-            var response = client.GetAsync("fitnessActivities?pageSize=1000").Result;
+            var response = _client.GetAsync("fitnessActivities?pageSize=1000").Result;
             var rawData = response.Content.ReadAsStringAsync().Result;
             dynamic jsonObj = JsonConvert.DeserializeObject(rawData);
             return jsonObj?.items?.ToObject<List<Run>>();
@@ -30,12 +30,13 @@ namespace FitnessStats.Services
 
         private void SetUpHttpClient()
         {
-            client = new HttpClient();
-            client.BaseAddress = new Uri("https://api.runkeeper.com/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.IfModifiedSince = syncSettingsRepository.GetLastUpdatedTime();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", RunkeeperToken);
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.com.runkeeper.FitnessActivityFeed+json"));
+            var runkeeperUrl = ConfigurationManager.AppSettings["RunkeeperUrl"];
+            var runkeeperToken = ConfigurationManager.AppSettings["RunkeeperToken"];
+            _client = new HttpClient { BaseAddress = new Uri(runkeeperUrl) };
+            _client.DefaultRequestHeaders.Accept.Clear();
+            _client.DefaultRequestHeaders.IfModifiedSince = _syncSettingsRepository.GetLastUpdatedTime();
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", runkeeperToken);
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.com.runkeeper.FitnessActivityFeed+json"));
         }
     }
 }

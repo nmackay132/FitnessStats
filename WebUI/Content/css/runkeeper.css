@@ -1,4 +1,12 @@
 #RunkeeperStats {
-  width: 600px;
+  margin-bottom: 15px;
+  width: 615px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+#RunkeeperStats #DataTables_Table_0_wrapper {
+  margin: 5px;
+}
+#RunkeeperStats #DataTables_Table_0_wrapper .dataTables_length,
+#RunkeeperStats #DataTables_Table_0_wrapper .dataTables_filter {
+  margin-bottom: 5px;
 }

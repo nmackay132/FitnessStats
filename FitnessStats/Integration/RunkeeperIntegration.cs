@@ -21,6 +21,7 @@ namespace FitnessStats.Integration
         public void UpdateRuns()
         {
             var runs = _runkeeperService.GetAllRunsIfChanges();
+
             if (!HasNewRuns(runs)) return;
 
             _runRepository.UpdateManyRuns(runs);
@@ -28,7 +29,7 @@ namespace FitnessStats.Integration
 
         private static bool HasNewRuns(IList<Run> runs)
         {
-            return runs != null && runs.Any();
+            return runs?.Any() == true;
         }
     }
 }

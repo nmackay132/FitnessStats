@@ -31,6 +31,8 @@ namespace WebUI
             builder.RegisterType<RunkeeperService>().As<IRunkeeperService>();
 
             builder.RegisterType<RunRepository>().As<IRunRepository>();
+            builder.RegisterType<SyncSettingsRepository>().As<ISyncSettingsRepository>();
+
             return builder;
         }
     }

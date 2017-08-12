@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FitnessStats.Repositories
 {
-    interface ISyncSettingsRepository
+    public interface ISyncSettingsRepository
     {
+        DateTime GetLastUpdatedTime();
     }
 }
