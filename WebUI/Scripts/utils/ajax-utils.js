@@ -13,24 +13,24 @@ define([], function() {
             };
 
             $.ajax(url, options)
-            .done(function (data) {
-                deferred.resolve(data);
-            })
-            .fail(function(data) {
-                deferred.reject(data);
-            });
+                .done(function(data) {
+                    deferred.resolve(data);
+                })
+                .fail(function(data) {
+                    deferred.reject(data);
+                });
 
             return deferred.promise();
-        }
+        };
 
         self.getJSON = function(url, data) {
             return self.jsonRequest(url, data, 'GET');
-        }
+        };
 
-        self.postJSON = function (url, data) {
+        self.postJSON = function(url, data) {
             return self.jsonRequest(url, data, 'POST');
-        }
-    }
+        };
+    };
 
     return new Ajax();
 });

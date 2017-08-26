@@ -5,6 +5,6 @@ namespace FitnessStats.Services
 {
     public interface IDataService
     {
-        List<Run> GetRuns();
+        IList<Run> GetRuns();
     }
 }

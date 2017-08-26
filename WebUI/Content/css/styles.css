@@ -23,14 +23,12 @@
 }
 #StatsSummary .statBlock {
   display: inline-block;
-  width: 30%;
   margin-top: 5px;
-  margin-left: 15px;
 }
 #StatsSummary .statBlock .statBlock-stat {
   padding-bottom: 30px;
   padding-top: 35px;
-  font-size: xx-large;
+  font-size: 26px;
   font-weight: 400;
 }
 body {

@@ -5,7 +5,7 @@ namespace FitnessStats.Repositories
 {
     public interface IRunRepository
     {
-        List<Run> GetRuns();
+        IList<Run> GetRuns();
         void UpdateManyRuns(IEnumerable<Run> runs);
     }
 }

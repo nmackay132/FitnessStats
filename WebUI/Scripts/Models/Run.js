@@ -29,7 +29,9 @@
             var minutes = Math.floor((duration - (60 * 60 * hours)) / 60);
             var seconds = Math.round((duration - (60 * 60 * hours + 60 * minutes)));
             var hStr = "";
+
             if (hours > 0) hStr = hours + "h:";
+
             return hStr + minutes + "m:" + seconds + "s";
         }
 

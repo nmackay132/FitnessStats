@@ -15,9 +15,9 @@ namespace WebUI.Controllers
         }
 
         [HttpGet]
-        public ApiResponse<List<Run>> GetRuns()
+        public ApiResponse<IList<Run>> GetRuns()
         {
-            return new ApiResponse<List<Run>>(ApiStatusCode.OK, _dataService.GetRuns());
+            return new ApiResponse<IList<Run>>(ApiStatusCode.OK, _dataService.GetRuns());
         }
     }
 }

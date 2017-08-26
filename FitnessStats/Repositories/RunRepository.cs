@@ -14,7 +14,7 @@ namespace FitnessStats.Repositories
             _runCollection = Database.GetCollection<Run>("RunLog");
         }
 
-        public List<Run> GetRuns()
+        public IList<Run> GetRuns()
         {
             return _runCollection.AsQueryable().ToList();
         }

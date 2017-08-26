@@ -16,7 +16,7 @@ namespace FitnessStats.Services
             _runkeeperIntegration = runkeeperIntegration;
         }
 
-        public List<Run> GetRuns()
+        public IList<Run> GetRuns()
         {
             _runkeeperIntegration.UpdateRuns();
             return _runRepository.GetRuns();
