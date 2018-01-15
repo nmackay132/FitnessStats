@@ -14,9 +14,9 @@ namespace FitnessStats.Repositories
             _collection = Database.GetCollection<SyncSettings>("SyncSettings").AsQueryable();
         }
 
-        public DateTime GetLastUpdatedTime()
+        public DateTime? GetLastUpdatedTime()
         {
-            return _collection.Single().LastUpdated;
+            return _collection.SingleOrDefault()?.LastUpdated;
         }
     }
 }

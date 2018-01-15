@@ -33,10 +33,20 @@ namespace FitnessStats.Services
             var runkeeperUrl = ConfigurationManager.AppSettings["RunkeeperUrl"];
             var runkeeperToken = ConfigurationManager.AppSettings["RunkeeperToken"];
             _client = new HttpClient { BaseAddress = new Uri(runkeeperUrl) };
+            SetIfModifiedSince();
             _client.DefaultRequestHeaders.Accept.Clear();
-            _client.DefaultRequestHeaders.IfModifiedSince = _syncSettingsRepository.GetLastUpdatedTime();
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", runkeeperToken);
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.com.runkeeper.FitnessActivityFeed+json"));
+
+        }
+
+        private void SetIfModifiedSince()
+        {
+            var modifiedTime = _syncSettingsRepository.GetLastUpdatedTime();
+            if (modifiedTime != null)
+            {
+                _client.DefaultRequestHeaders.IfModifiedSince = modifiedTime;
+            }
         }
     }
 }

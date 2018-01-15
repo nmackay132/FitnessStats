@@ -4,6 +4,6 @@ namespace FitnessStats.Repositories
 {
     public interface ISyncSettingsRepository
     {
-        DateTime GetLastUpdatedTime();
+        DateTime? GetLastUpdatedTime();
     }
 }
