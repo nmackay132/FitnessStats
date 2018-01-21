@@ -1,52 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Net.Http;
-using System.Net.Http.Headers;
+﻿using System.Collections.Generic;
+using FitnessStats.Helpers;
+using FitnessStats.Integration;
 using FitnessStats.Models;
 using FitnessStats.Repositories;
-using Newtonsoft.Json;
 
 namespace FitnessStats.Services
 {
     public class RunkeeperService : IRunkeeperService
     {
-        private HttpClient _client;
-        private readonly ISyncSettingsRepository _syncSettingsRepository;
+        private readonly IRunRepository _runRepository;
+        private readonly IRunkeeperIntegration _runkeeperIntegration;
 
-        public RunkeeperService(ISyncSettingsRepository syncSettingsRepository)
+        public RunkeeperService(IRunRepository runRepository, IRunkeeperIntegration runkeeperIntegration)
         {
-            _syncSettingsRepository = syncSettingsRepository;
-            SetUpHttpClient();
+            _runRepository = runRepository;
+            _runkeeperIntegration = runkeeperIntegration;
         }
 
-        public List<Run> GetAllRunsIfChanges()
+        public IList<Run> GetRuns()
         {
-            var response = _client.GetAsync("fitnessActivities?pageSize=1000").Result;
-            var rawData = response.Content.ReadAsStringAsync().Result;
-            dynamic jsonObj = JsonConvert.DeserializeObject(rawData);
-            return jsonObj?.items?.ToObject<List<Run>>();
+            _runkeeperIntegration.UpdateRuns();
+            return _runRepository.GetRuns();
         }
 
-        private void SetUpHttpClient()
+        public StatsSummaryReadModel GetStatsSummary()
         {
-            var runkeeperUrl = ConfigurationManager.AppSettings["RunkeeperUrl"];
-            var runkeeperToken = ConfigurationManager.AppSettings["RunkeeperToken"];
-            _client = new HttpClient { BaseAddress = new Uri(runkeeperUrl) };
-            SetIfModifiedSince();
-            _client.DefaultRequestHeaders.Accept.Clear();
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", runkeeperToken);
-            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.com.runkeeper.FitnessActivityFeed+json"));
-
-        }
-
-        private void SetIfModifiedSince()
-        {
-            var modifiedTime = _syncSettingsRepository.GetLastUpdatedTime();
-            if (modifiedTime != null)
+            var runs = GetRuns();
+            var stats = new StatsSummaryReadModel();
+            double totalMeters = 0;
+            foreach (var run in runs)
             {
-                _client.DefaultRequestHeaders.IfModifiedSince = modifiedTime;
+                stats.TotalCalories += run.TotalCalories;
+                stats.TotalDuration += run.Duration;
+                totalMeters += run.TotalDistance;
             }
+
+            stats.TotalCaloriesFormatted = $"{stats.TotalCalories:n0}";
+            stats.TotalKilometers = DistanceConverter.MetersToKilometers(totalMeters);
+            stats.TotalKilometersFormatted = $"{stats.TotalKilometers:n0} km";
+            stats.TotalMiles = DistanceConverter.MetersToMiles(totalMeters); 
+            stats.TotalMilesFormatted = $"{stats.TotalMiles:n0} mi";
+            stats.TotalDurationFormatted = TimeFormatter.FormatToDays(stats.TotalDuration);
+
+            return stats;
         }
     }
 }

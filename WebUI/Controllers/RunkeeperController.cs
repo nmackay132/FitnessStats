@@ -7,17 +7,17 @@ namespace WebUI.Controllers
 {
     public class RunkeeperController : ApiController
     {
-        private readonly IDataService _dataService;
+        private readonly IRunkeeperService _runkeeperService;
 
-        public RunkeeperController(IDataService dataService)
+        public RunkeeperController(IRunkeeperService runkeeperService)
         {
-            _dataService = dataService;
+            _runkeeperService = runkeeperService;
         }
 
         [HttpGet]
         public ApiResponse<IList<Run>> GetRuns()
         {
-            return new ApiResponse<IList<Run>>(ApiStatusCode.OK, _dataService.GetRuns());
+            return new ApiResponse<IList<Run>>(ApiStatusCode.OK, _runkeeperService.GetRuns());
         }
     }
 }

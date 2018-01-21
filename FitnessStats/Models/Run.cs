@@ -8,6 +8,8 @@ namespace FitnessStats.Models
     [BsonIgnoreExtraElements]
     public class Run
     {
+        private const double KmToMiles = 0.621371;
+
         [JsonIgnore]
         [BsonIgnore]
         public ObjectId Id { get; set; }
@@ -55,5 +57,9 @@ namespace FitnessStats.Models
         [JsonProperty("uri")]
         [BsonElement("uri")]
         public string Uri { get; set; }
+
+        public double TotalKilometers => TotalDistance / 1000;
+
+        public double TotalMiles => TotalKilometers * KmToMiles;
     }
 }

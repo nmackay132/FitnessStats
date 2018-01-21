@@ -5,6 +5,7 @@ namespace FitnessStats.Services
 {
     public interface IRunkeeperService
     {
-        List<Run> GetAllRunsIfChanges();
+        IList<Run> GetRuns();
+        StatsSummaryReadModel GetStatsSummary();
     }
 }

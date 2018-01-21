@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using FitnessStats.Clients;
 using FitnessStats.Integration;
 using FitnessStats.Repositories;
 using FitnessStats.Services;
@@ -27,8 +28,8 @@ namespace WebUI
 
             builder.RegisterType<RunkeeperIntegration>().As<IRunkeeperIntegration>();
 
-            builder.RegisterType<DataService>().As<IDataService>();
             builder.RegisterType<RunkeeperService>().As<IRunkeeperService>();
+            builder.RegisterType<RunkeeperClient>().As<IRunkeeperClient>();
 
             builder.RegisterType<RunRepository>().As<IRunRepository>();
             builder.RegisterType<SyncSettingsRepository>().As<ISyncSettingsRepository>();

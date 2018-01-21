@@ -2,15 +2,27 @@
     <div class="cushion row">
         <div class="statBlock col-md-4">
             TOTAL DISTANCE
-            <div class="statBlock-stat">323 mi</div>
+            <div class="statBlock-stat" data-bind="text: totalMiles"></div>
         </div>
         <div class="statBlock col-md-4">
             TOTAL DURATION
-            <div class="statBlock-stat">47h:53m </div>
+            <div class="statBlock-stat" data-bind="text: totalDuration"></div>
         </div>
         <div class="statBlock col-md-4">
             TOTAL CALORIES
-            <div class="statBlock-stat">48,133</div>
+            <div class="statBlock-stat" data-bind="text: totalCalories"></div>
         </div>
     </div>
 </div>
+
+<script>
+    requirejs(["ViewModels/StatsSummary"], function (StatsSummary) {
+        var vm = new StatsSummary();
+
+        vm.initialize({
+            getStatsUrl : '@Url.Action("Get", "StatsSummary", new { httproute = "" })'
+        });
+
+        ko.applyBindings(vm, $("#StatsSummary")[0]);
+    });
+</script>

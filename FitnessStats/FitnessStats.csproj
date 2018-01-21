@@ -81,13 +81,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DistanceConverter.cs" />
+    <Compile Include="Helpers\TimeFormatter.cs" />
     <Compile Include="Integration\IRunkeeperIntegration.cs" />
     <Compile Include="Integration\RunkeeperIntegration.cs" />
     <Compile Include="Models\ApiResponse.cs" />
     <Compile Include="Models\ApiStatusCode.cs" />
     <Compile Include="Models\Run.cs" />
     <Compile Include="Models\RunsObject.cs" />
-    <Compile Include="Models\RunStatsReadModel.cs" />
+    <Compile Include="Models\StatsSummaryReadModel.cs" />
     <Compile Include="Models\SyncSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRunRepository.cs" />
@@ -95,10 +97,10 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RunRepository.cs" />
     <Compile Include="Repositories\SyncSettingsRepository.cs" />
-    <Compile Include="Services\DataService.cs" />
-    <Compile Include="Services\IDataService.cs" />
-    <Compile Include="Services\IRunkeeperService.cs" />
     <Compile Include="Services\RunkeeperService.cs" />
+    <Compile Include="Services\IRunkeeperService.cs" />
+    <Compile Include="Clients\IRunkeeperClient.cs" />
+    <Compile Include="Clients\RunkeeperClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
