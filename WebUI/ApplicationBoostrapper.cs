@@ -6,7 +6,9 @@ using Autofac.Integration.WebApi;
 using FitnessStats.Clients;
 using FitnessStats.Integration;
 using FitnessStats.Repositories;
+using FitnessStats.Repositories.Security;
 using FitnessStats.Services;
+using RestSharp;
 
 namespace WebUI
 {
@@ -26,13 +28,17 @@ namespace WebUI
             builder.RegisterControllers(assembly);
             builder.RegisterApiControllers(assembly);
 
-            builder.RegisterType<RunkeeperIntegration>().As<IRunkeeperIntegration>();
+            builder.RegisterType<RestClient>().As<IRestClient>();
 
+            builder.RegisterType<RunkeeperIntegration>().As<IRunkeeperIntegration>();
             builder.RegisterType<RunkeeperService>().As<IRunkeeperService>();
             builder.RegisterType<RunkeeperClient>().As<IRunkeeperClient>();
 
             builder.RegisterType<RunRepository>().As<IRunRepository>();
             builder.RegisterType<SyncSettingsRepository>().As<ISyncSettingsRepository>();
+            builder.RegisterType<SecretRepository>().As<ISecretRepository>();
+
+            builder.RegisterType<StravaAuthorizationClient>().As<IStravaAuthorizationClient>();
 
             return builder;
         }

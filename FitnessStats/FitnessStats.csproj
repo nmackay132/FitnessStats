@@ -58,6 +58,9 @@
       <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RestSharp, Version=106.3.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.3.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -69,6 +72,7 @@
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
@@ -81,6 +85,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\IStravaAuthorizationClient.cs" />
+    <Compile Include="Clients\StravaAuthorizationClient.cs" />
     <Compile Include="Helpers\DistanceConverter.cs" />
     <Compile Include="Helpers\TimeFormatter.cs" />
     <Compile Include="Integration\IRunkeeperIntegration.cs" />
@@ -89,13 +95,17 @@
     <Compile Include="Models\ApiStatusCode.cs" />
     <Compile Include="Models\Run.cs" />
     <Compile Include="Models\RunsObject.cs" />
+    <Compile Include="Models\Security\TokenReadModel.cs" />
     <Compile Include="Models\StatsSummaryReadModel.cs" />
     <Compile Include="Models\SyncSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRunRepository.cs" />
+    <Compile Include="Repositories\Security\ISecretRepository.cs" />
     <Compile Include="Repositories\ISyncSettingsRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RunRepository.cs" />
+    <Compile Include="Models\Security\Secret.cs" />
+    <Compile Include="Repositories\Security\SecretRepository.cs" />
     <Compile Include="Repositories\SyncSettingsRepository.cs" />
     <Compile Include="Services\RunkeeperService.cs" />
     <Compile Include="Services\IRunkeeperService.cs" />

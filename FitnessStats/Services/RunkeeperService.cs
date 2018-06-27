@@ -40,7 +40,7 @@ namespace FitnessStats.Services
             stats.TotalKilometersFormatted = $"{stats.TotalKilometers:n0} km";
             stats.TotalMiles = DistanceConverter.MetersToMiles(totalMeters); 
             stats.TotalMilesFormatted = $"{stats.TotalMiles:n0} mi";
-            stats.TotalDurationFormatted = TimeFormatter.FormatToDays(stats.TotalDuration);
+            stats.TotalDurationFormatted = TimeFormatter.FormatToDhm(stats.TotalDuration);
 
             return stats;
         }

@@ -7,7 +7,7 @@ namespace FitnessStats.Helpers
         private const int secInHr = 60 * 60;
         private const int secInDay = 24 * secInHr;
 
-        public static string Format(double totalSeconds)
+        public static string FormatToHms(double totalSeconds)
         {
             var hours = Math.Floor(totalSeconds / secInHr);
             var minutes = Math.Floor((totalSeconds - (secInHr * hours)) / 60);
@@ -19,7 +19,7 @@ namespace FitnessStats.Helpers
             return hStr + minutes + "m:" + seconds + "s";
         }
 
-        public static string FormatToDays(double totalSeconds)
+        public static string FormatToDhm(double totalSeconds)
         {
             var days = Math.Floor(totalSeconds / secInDay);
             var hours = Math.Floor((totalSeconds - days * secInDay) / secInHr);
